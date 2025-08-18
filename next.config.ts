@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
   output: 'export',
   basePath: isProd ? repo : '',
   assetPrefix: isProd ? `${repo}/` : '',
-  distDir: 'docs',
   images: {
     unoptimized: true,
   },
