@@ -268,7 +268,7 @@ export default function PindvedisPage() {
                 सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामया:
               </h3>
               <p className="text-gray-600 italic mb-2">
-                "May all beings be happy, may all beings be healthy"
+                &quot;May all beings be happy, may all beings be healthy&quot;
               </p>
               <p className="text-sm text-orange-600 font-semibold">
                 - Traditional Sanskrit Blessing

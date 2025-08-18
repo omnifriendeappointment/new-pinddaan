@@ -7,10 +7,9 @@ import {
   faPhone, 
   faClock,
   faCheckCircle,
-  faArrowRight 
 } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp as faWhatsappBrand } from '@fortawesome/free-brands-svg-icons';
-import { services, serviceCategories } from '@/config/services';
+import { serviceCategories } from '@/config/services';
 import { siteConfig } from '@/config/site';
 
 export default function ServicesPage() {
@@ -110,7 +109,7 @@ export default function ServicesPage() {
 
                       {/* What's Included */}
                       <div className="mb-6">
-                        <h4 className="font-semibold text-gray-900 mb-3">What's Included:</h4>
+                        <h4 className="font-semibold text-gray-900 mb-3">What&apos;s Included:</h4>
                         <ul className="space-y-2">
                           {service.includes.map((item, index) => (
                             <li key={index} className="flex items-center space-x-3">
@@ -271,7 +270,7 @@ export default function ServicesPage() {
                 
                 <p className="text-orange-100 mb-8">
                   Contact us today to discuss your spiritual needs and arrange 
-                  your preferred ceremony. We're here to guide you every step of the way.
+                  your preferred ceremony. We&apos;re here to guide you every step of the way.
                 </p>
                 
                 <div className="space-y-4">

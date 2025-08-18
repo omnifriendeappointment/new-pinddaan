@@ -176,7 +176,7 @@ export default function ContactSection() {
                 <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Need Directions?</h4>
-                    <p className="text-gray-600">We're located in the main temple area of Gaya</p>
+                    <p className="text-gray-600">We&apos;re located in the main temple area of Gaya</p>
                   </div>
                   
                   <a
@@ -206,7 +206,7 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Emergency Spiritual Services</h3>
             <p className="text-gray-600 mb-6">
               Need urgent spiritual guidance or last-minute ceremony arrangements? 
-              We're available 24/7 for emergency spiritual services.
+              We&apos;re available 24/7 for emergency spiritual services.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">

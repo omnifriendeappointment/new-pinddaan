@@ -96,7 +96,7 @@ export default function ContactPage() {
             </h1>
             
             <p className="text-xl text-orange-100 leading-relaxed">
-              Ready to begin your spiritual journey? We're here to guide you through 
+              Ready to begin your spiritual journey? We&apos;re here to guide you through 
               every step of your sacred pilgrimage in Gaya. Contact us today for 
               personalized assistance.
             </p>
@@ -324,7 +324,7 @@ export default function ContactPage() {
             
             <p className="text-xl text-red-100 mb-8 leading-relaxed">
               Need urgent spiritual guidance or last-minute ceremony arrangements? 
-              We're available 24/7 for emergency spiritual services and immediate assistance.
+              We&apos;re available 24/7 for emergency spiritual services and immediate assistance.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">

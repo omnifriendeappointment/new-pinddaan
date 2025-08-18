@@ -13,7 +13,6 @@ import {
   faChevronDown,
   faHome,
   faWater,
-  faMountain,
   faSun
 } from '@fortawesome/free-solid-svg-icons';
 import { siteConfig } from '@/config/site';
