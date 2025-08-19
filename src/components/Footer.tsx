@@ -25,8 +25,11 @@ export default function Footer() {
 
   // Only include social links that are available in config
   const socialLinks = [
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...((siteConfig.links as any).facebook ? [{ icon: faFacebook, href: (siteConfig.links as any).facebook, hoverColor: 'hover:text-orange-400' }] : []),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...((siteConfig.links as any).twitter ? [{ icon: faTwitter, href: (siteConfig.links as any).twitter, hoverColor: 'hover:text-orange-400' }] : []),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...((siteConfig.links as any).instagram ? [{ icon: faInstagram, href: (siteConfig.links as any).instagram, hoverColor: 'hover:text-orange-400' }] : []),
     { icon: faWhatsapp, href: `https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`, hoverColor: 'hover:text-green-400' }
   ];

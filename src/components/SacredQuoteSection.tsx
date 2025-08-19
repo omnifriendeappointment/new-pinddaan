@@ -110,7 +110,7 @@ export default function SacredQuoteSection() {
             
             <div className="mb-8">
               <p className="text-2xl font-semibold text-orange-700 italic">
-                "हे वासुदेव भगवान, मैं आपको नमन करता हूँ।"
+                &quot;हे वासुदेव भगवान, मैं आपको नमन करता हूँ।&quot;
               </p>
             </div>
             

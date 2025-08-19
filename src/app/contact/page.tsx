@@ -58,8 +58,11 @@ const contactMethods = [
 ];
 
 const socialLinks = [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...((siteConfig.links as any).facebook ? [{ icon: faFacebook, name: 'Facebook', link: (siteConfig.links as any).facebook, color: 'text-blue-600' }] : []),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...((siteConfig.links as any).twitter ? [{ icon: faTwitter, name: 'Twitter', link: (siteConfig.links as any).twitter, color: 'text-sky-600' }] : []),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...((siteConfig.links as any).instagram ? [{ icon: faInstagram, name: 'Instagram', link: (siteConfig.links as any).instagram, color: 'text-pink-600' }] : []),
   { icon: faWhatsapp, name: 'WhatsApp', link: `https://wa.me/91${siteConfig.contact.phone.replace(/\D/g, '')}`, color: 'text-green-600' }
 ];
