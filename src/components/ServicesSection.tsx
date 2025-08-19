@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { services } from '@/config/services';
@@ -10,8 +11,74 @@ export default function ServicesSection() {
   const featuredServices = services.slice(0, 6); // Show first 6 services
 
   return (
-    <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
+      {/* Floating Tulsi leaves decoration */}
+      <div className="absolute top-16 right-24">
+        <motion.div
+          animate={{ 
+            rotate: [0, 12, -8, 0],
+            scale: [1, 1.1, 0.9, 1]
+          }}
+          transition={{ 
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={42}
+            height={42}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-24 left-32">
+        <motion.div
+          animate={{ 
+            rotate: [0, -18, 22, 0],
+            y: [0, -8, 12, 0]
+          }}
+          transition={{ 
+            duration: 11,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={38}
+            height={38}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute top-1/3 left-16">
+        <motion.div
+          animate={{ 
+            rotate: [0, 15, -12, 0],
+            x: [0, 8, -5, 0]
+          }}
+          transition={{ 
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={35}
+            height={35}
+          />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -32,7 +99,7 @@ export default function ServicesSection() {
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Experience authentic spiritual ceremonies performed with complete devotion 
-            and traditional Vedic practices in the holy city of Gaya.
+            and traditional Vedic practices in the holy city of Gaya Ji.
           </p>
         </motion.div>
 
@@ -74,11 +141,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Service Price & CTA */}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                <div className="text-sm text-gray-500">
-                  <span>Duration: {service.duration}</span>
-                </div>
-                
+              <div className="flex items-center justify-between pt-4 border-t border-gray-100">                
                 <button className="flex items-center space-x-2 text-orange-600 hover:text-orange-700 font-semibold group-hover:translate-x-1 transition-all duration-300">
                   <span>Learn More</span>
                   <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />

@@ -12,12 +12,32 @@ import {
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 
-// Gallery images - directly from public/images folder
+// Gallery images - all 24 images in the gallery folder
 const galleryImages = [
-  '/images/img-1.jpeg',
-  '/images/img-2.webp',
-  '/images/img-3.png',
-  '/images/img-4.png',
+  '/gallery/img-1.jpeg',
+  '/gallery/img-2.webp',
+  '/gallery/img-3.png',
+  '/gallery/img-4.png',
+  '/gallery/img-5.jpeg',
+  '/gallery/img-6.jpeg',
+  '/gallery/img-7.jpeg',
+  '/gallery/img-8.jpeg',
+  '/gallery/img-9.jpeg',
+  '/gallery/img-10.jpeg',
+  '/gallery/img-11.jpeg',
+  '/gallery/img-12.jpeg',
+  '/gallery/img-13.jpeg',
+  '/gallery/img-14.jpeg',
+  '/gallery/img-15.jpeg',
+  '/gallery/img-16.jpeg',
+  '/gallery/img-17.jpeg',
+  '/gallery/img-18.jpeg',
+  '/gallery/img-19.jpeg',
+  '/gallery/img-20.jpeg',
+  '/gallery/img-21.jpeg',
+  '/gallery/img-22.jpeg',
+  '/gallery/img-23.jpeg',
+  '/gallery/img-24.jpeg',
 ];
 
 export default function GalleryPage() {
@@ -175,7 +195,7 @@ export default function GalleryPage() {
             </h2>
             
             <p className="text-xl text-orange-100 mb-8 leading-relaxed">
-              Let us help you preserve the sacred moments of your pilgrimage to Gaya. 
+              Let us help you preserve the sacred moments of your pilgrimage to Gaya Ji. 
               Our experienced team can document your spiritual journey with reverence and care.
             </p>
             

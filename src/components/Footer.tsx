@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faPhone, 
@@ -21,9 +23,129 @@ import { services } from '@/config/services';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Only include social links that are available in config
+  const socialLinks = [
+    ...((siteConfig.links as any).facebook ? [{ icon: faFacebook, href: (siteConfig.links as any).facebook, hoverColor: 'hover:text-orange-400' }] : []),
+    ...((siteConfig.links as any).twitter ? [{ icon: faTwitter, href: (siteConfig.links as any).twitter, hoverColor: 'hover:text-orange-400' }] : []),
+    ...((siteConfig.links as any).instagram ? [{ icon: faInstagram, href: (siteConfig.links as any).instagram, hoverColor: 'hover:text-orange-400' }] : []),
+    { icon: faWhatsapp, href: `https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`, hoverColor: 'hover:text-green-400' }
+  ];
+
   return (
-    <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white relative overflow-hidden">
+      {/* Floating Tulsi leaves decoration */}
+      <div className="absolute top-6 left-16">
+        <motion.div
+          animate={{ 
+            rotate: [0, 15, -10, 0],
+            y: [0, -8, 12, 0]
+          }}
+          transition={{ 
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={35}
+            height={35}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute top-32 right-20">
+        <motion.div
+          animate={{ 
+            rotate: [0, -18, 12, 0],
+            x: [0, 8, -6, 0]
+          }}
+          transition={{ 
+            duration: 11,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={40}
+            height={40}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-28 left-1/3">
+        <motion.div
+          animate={{ 
+            rotate: [0, 12, -15, 0],
+            y: [0, 10, -5, 0],
+            x: [0, -4, 8, 0]
+          }}
+          transition={{ 
+            duration: 13,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 7
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={32}
+            height={32}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute top-20 left-1/2">
+        <motion.div
+          animate={{ 
+            rotate: [0, -8, 20, 0],
+            y: [0, -12, 6, 0]
+          }}
+          transition={{ 
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={28}
+            height={28}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-16 right-1/4">
+        <motion.div
+          animate={{ 
+            rotate: [0, 25, -12, 0],
+            x: [0, 6, -10, 0],
+            y: [0, 8, 0]
+          }}
+          transition={{ 
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={30}
+            height={30}
+          />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
@@ -33,27 +155,28 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-orange-400">{siteConfig.name}</h3>
-                <p className="text-xs text-gray-400">Sacred Rituals</p>
+                <p className="text-sm text-orange-500 font-semibold italic">{siteConfig.tagline}</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Preserving ancient traditions and providing authentic spiritual services 
-              in the holy city of Gaya for your complete peace of mind.
+              in the holy city of Gaya Ji for your complete peace of mind.
             </p>
-            <div className="flex space-x-4">
-              <a href={siteConfig.links.facebook} className="text-gray-400 hover:text-orange-400 transition-colors">
-                <FontAwesomeIcon icon={faFacebook} className="w-5 h-5" />
-              </a>
-              <a href={siteConfig.links.twitter} className="text-gray-400 hover:text-orange-400 transition-colors">
-                <FontAwesomeIcon icon={faTwitter} className="w-5 h-5" />
-              </a>
-              <a href={siteConfig.links.instagram} className="text-gray-400 hover:text-orange-400 transition-colors">
-                <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" />
-              </a>
-              <a href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`} className="text-gray-400 hover:text-green-400 transition-colors">
-                <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5" />
-              </a>
-            </div>
+            {socialLinks.length > 0 && (
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <a 
+                    key={index} 
+                    href={social.href} 
+                    className={`text-gray-400 ${social.hoverColor} transition-colors`}
+                    target={social.href.startsWith('http') ? '_blank' : '_self'}
+                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  >
+                    <FontAwesomeIcon icon={social.icon} className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Services */}
@@ -135,11 +258,22 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center space-y-2">
           <p className="text-gray-400 text-sm">
             © {currentYear} {siteConfig.name}. Made with{' '}
             <FontAwesomeIcon icon={faHeart} className="w-4 h-4 text-red-500 mx-1" />
             for spiritual devotees.
+          </p>
+          <p className="text-gray-500 text-xs">
+            Designed & Developed by{' '}
+            <a 
+              href="https://adshere.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-orange-400 hover:text-orange-300 transition-colors font-medium"
+            >
+              AdsHere
+            </a>
           </p>
         </div>
       </div>

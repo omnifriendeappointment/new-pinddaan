@@ -15,8 +15,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Pinddaan Services - Sacred Rituals in Gaya",
-  description: "Authentic spiritual services and sacred rituals in the holy city of Gaya. Experience traditional Pinddaan ceremonies with complete devotion.",
+  title: "Pinddaan Services - Sacred Rituals in Gaya Ji",
+  description: "Authentic spiritual services and sacred rituals in the holy city of Gaya Ji. Experience traditional Pinddaan ceremonies with complete devotion.",
   keywords: "pinddaan, gaya, spiritual services, hindu rituals, sacred ceremonies, religious services",
 };
 

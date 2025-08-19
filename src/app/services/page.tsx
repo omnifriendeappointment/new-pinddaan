@@ -34,7 +34,7 @@ export default function ServicesPage() {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Complete Spiritual Seva in Gaya
+              Complete Spiritual Seva in Gaya Ji
             </h1>
             
             <p className="text-xl text-orange-100 leading-relaxed">
@@ -85,20 +85,11 @@ export default function ServicesPage() {
                         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                           <span className="text-2xl">{service.icon}</span>
                         </div>
-                        <div className="text-right">
-                          <div className="text-sm opacity-80">Duration</div>
-                          <div className="font-bold">{service.duration}</div>
-                        </div>
                       </div>
                       
                       <h3 className="text-2xl font-bold mt-4 mb-2">
                         {service.title}
                       </h3>
-                      
-                      <div className="flex items-center space-x-2 text-orange-100">
-                        <FontAwesomeIcon icon={faClock} className="w-4 h-4" />
-                        <span>{service.duration}</span>
-                      </div>
                     </div>
 
                     {/* Service Content */}

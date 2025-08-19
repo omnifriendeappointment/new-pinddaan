@@ -2,7 +2,8 @@ import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === 'production'
 console.log('isProd:', isProd);
-const repo = '/new-pinddaan';
+// const repo = '/new-pinddaan';
+const repo = '';
 
 const nextConfig: NextConfig = {
   /* config options here */

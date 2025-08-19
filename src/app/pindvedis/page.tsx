@@ -35,7 +35,7 @@ const sectionTitles = {
 };
 
 const sectionDescriptions = {
-  importantVedis: 'Most sacred and significant places in Gaya for spiritual rituals',
+  importantVedis: 'Most sacred and significant places in Gaya Ji for spiritual rituals',
   pindVedis: 'Sacred locations specifically for Pinddaan ceremonies',
   tarpanVedis: 'Holy water bodies for Tarpan and ancestral offerings',
   darsanVedis: 'Divine darshan spots for spiritual blessings'
@@ -67,7 +67,7 @@ export default function PindvedisPage() {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Holy Pind Vedis of Gaya
+              Holy Pind Vedis of Gaya Ji
             </h1>
             
             <p className="text-xl text-orange-100 leading-relaxed">
@@ -214,7 +214,7 @@ export default function PindvedisPage() {
             </h2>
             
             <p className="text-xl text-orange-100 mb-8 leading-relaxed">
-              Let us guide you through the sacred vedis of Gaya with our experienced 
+              Let us guide you through the sacred vedis of Gaya Ji with our experienced 
               pandits. We arrange complete tours covering all important spiritual 
               locations according to traditional practices.
             </p>

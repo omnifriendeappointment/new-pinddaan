@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -70,14 +71,58 @@ export default function Header() {
           </div>
           <div className="hidden lg:flex items-center space-x-3">
             <FontAwesomeIcon icon={faOm} className="w-5 h-5 text-yellow-300 animate-pulse" />
-            <span className="text-yellow-100 font-medium">Sacred Services in Gaya</span>
+            <span className="text-yellow-100 font-medium">Pinddaan Services in Gaya Ji</span>
           </div>
         </div>
       </div>
 
       {/* Main navigation - Completely modernized */}
       <nav className="bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-orange-100">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        {/* Floating Tulsi leaves decoration near logo */}
+        <div className="absolute top-2 left-24">
+          <motion.div
+            animate={{ 
+              rotate: [0, 8, -8, 0],
+              y: [0, -5, 5, 0]
+            }}
+            transition={{ 
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <Image
+              src="/tulsi-leaf.png"
+              alt="Tulsi Leaf"
+              width={20}
+              height={20}
+            />
+          </motion.div>
+        </div>
+
+        <div className="absolute bottom-2 left-32">
+          <motion.div
+            animate={{ 
+              rotate: [0, -12, 10, 0],
+              x: [0, 3, -3, 0]
+            }}
+            transition={{ 
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3
+            }}
+          >
+            <Image
+              src="/tulsi-leaf.png"
+              alt="Tulsi Leaf"
+              width={18}
+              height={18}
+            />
+          </motion.div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
           <div className="flex justify-between items-center h-20">
             {/* Logo - Enhanced */}
             <Link href="/" className="flex items-center space-x-4 group">
@@ -91,7 +136,7 @@ export default function Header() {
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent">
                   {siteConfig.name}
                 </h1>
-                <p className="text-sm text-gray-600 font-medium">Sacred Rituals & Spiritual Services</p>
+                <p className="text-base text-orange-800 font-semibold italic">{siteConfig.tagline}</p>
               </div>
             </Link>
 
@@ -129,7 +174,7 @@ export default function Header() {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10, scale: 0.95 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-orange-100 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-orange-100 overflow-hidden z-[60]"
                         >
                           <div className="p-2">
                             {item.dropdownItems?.map((dropdownItem) => (

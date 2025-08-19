@@ -4,7 +4,6 @@ export const services = [
     title: "Pinddaan Rituals",
     description: "Complete Pinddaan ceremony for your ancestors with all necessary rituals and offerings",
     icon: "🙏",
-    duration: "2-3 hours",
     includes: [
       "Complete Pinddaan ceremony",
       "Pandit services",
@@ -17,7 +16,6 @@ export const services = [
     title: "Tarpan Seva",
     description: "Sacred water offerings and prayers for ancestors at holy ghats",
     icon: "💧",
-    duration: "1-2 hours",
     includes: [
       "Tarpan ceremony",
       "Holy water offerings",
@@ -30,7 +28,6 @@ export const services = [
     title: "Shraddh Ceremony",
     description: "Annual remembrance ceremony for departed souls with complete rituals",
     icon: "🔥",
-    duration: "3-4 hours",
     includes: [
       "Complete Shraddh ritual",
       "Food offerings",
@@ -43,7 +40,6 @@ export const services = [
     title: "Narayan Bali",
     description: "Special ceremony for those who died unnaturally or suffered from diseases",
     icon: "🕊️",
-    duration: "4-5 hours",
     includes: [
       "Narayan Bali ritual",
       "Special offerings",
@@ -56,7 +52,6 @@ export const services = [
     title: "Asthi Visarjan",
     description: "Sacred immersion of ashes in holy Falgu river with proper ceremonies",
     icon: "🌊",
-    duration: "1-2 hours",
     includes: [
       "Asthi Visarjan ceremony",
       "Holy river immersion",
@@ -66,10 +61,9 @@ export const services = [
   },
   {
     id: 6,
-    title: "Gaya Shraddh",
-    description: "Complete Gaya Shraddh package with visits to all important vedis",
+    title: "Gaya Ji Shraddh",
+    description: "Complete Gaya Ji Shraddh package with visits to all important vedis",
     icon: "🛕",
-    duration: "Full day",
     includes: [
       "All vedi visits",
       "Complete ceremonies",

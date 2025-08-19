@@ -51,23 +51,16 @@ const contactMethods = [
     title: 'Address',
     value: siteConfig.contact.address,
     link: `https://maps.google.com/?q=${encodeURIComponent(siteConfig.contact.address)}`,
-    description: 'Visit our location in Gaya',
+    description: 'Visit our location in Gaya Ji',
     color: 'text-red-600',
     bgColor: 'from-red-100 to-red-200'
   }
 ];
 
-const businessHours = [
-  { day: 'Monday - Friday', time: '6:00 AM - 8:00 PM' },
-  { day: 'Saturday', time: '6:00 AM - 9:00 PM' },
-  { day: 'Sunday', time: '5:00 AM - 9:00 PM' },
-  { day: 'Special Occasions', time: '24/7 Available' }
-];
-
 const socialLinks = [
-  { icon: faFacebook, name: 'Facebook', link: siteConfig.links.facebook, color: 'text-blue-600' },
-  { icon: faTwitter, name: 'Twitter', link: siteConfig.links.twitter, color: 'text-sky-600' },
-  { icon: faInstagram, name: 'Instagram', link: siteConfig.links.instagram, color: 'text-pink-600' },
+  ...((siteConfig.links as any).facebook ? [{ icon: faFacebook, name: 'Facebook', link: (siteConfig.links as any).facebook, color: 'text-blue-600' }] : []),
+  ...((siteConfig.links as any).twitter ? [{ icon: faTwitter, name: 'Twitter', link: (siteConfig.links as any).twitter, color: 'text-sky-600' }] : []),
+  ...((siteConfig.links as any).instagram ? [{ icon: faInstagram, name: 'Instagram', link: (siteConfig.links as any).instagram, color: 'text-pink-600' }] : []),
   { icon: faWhatsapp, name: 'WhatsApp', link: `https://wa.me/91${siteConfig.contact.phone.replace(/\D/g, '')}`, color: 'text-green-600' }
 ];
 
@@ -97,7 +90,7 @@ export default function ContactPage() {
             
             <p className="text-xl text-orange-100 leading-relaxed">
               Ready to begin your spiritual journey? We&apos;re here to guide you through 
-              every step of your sacred pilgrimage in Gaya. Contact us today for 
+              every step of your sacred pilgrimage in Gaya Ji. Contact us today for 
               personalized assistance.
             </p>
           </motion.div>
@@ -175,7 +168,7 @@ export default function ContactPage() {
                 </div>
                 
                 <div className="space-y-3">
-                  {businessHours.map((hours, index) => (
+                  {siteConfig.businessHours.map((hours, index) => (
                     <div key={index} className="flex justify-between items-center py-2">
                       <span className="text-orange-100 text-sm">{hours.day}</span>
                       <span className="font-semibold text-sm">{hours.time}</span>
@@ -185,8 +178,8 @@ export default function ContactPage() {
               </div>
 
               {/* Social Media */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Follow Us</h3>
+              {socialLinks.length > 0 && <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Connect With Us</h3>
                 
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => (
@@ -204,7 +197,7 @@ export default function ContactPage() {
                     </a>
                   ))}
                 </div>
-              </div>
+              </div>}
 
               {/* Quick Actions */}
               <div className="space-y-3">
@@ -240,7 +233,7 @@ export default function ContactPage() {
                 <div className="p-6 bg-gradient-to-r from-orange-500 to-red-600 text-white">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold mb-2">Find Us in Gaya</h3>
+                      <h3 className="text-2xl font-bold mb-2">Find Us in Gaya Ji</h3>
                       <p className="text-orange-100">
                         Located in the heart of the holy city
                       </p>
@@ -260,7 +253,7 @@ export default function ContactPage() {
                 
                 <div className="aspect-video">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115358.39866136987!2d84.90845871875!3d24.75218565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32937d1c84c1b%3A0x27e76127e0128626!2sGaya%2C%20Bihar!5e0!3m2!1sen!2sin!4v1699000000000!5m2!1sen!2sin"
+                    src={siteConfig.googleMaps.embedUrl}
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -268,7 +261,7 @@ export default function ContactPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="w-full h-full"
-                    title="Gaya Location Map"
+                    title="Gaya Ji Location Map"
                   />
                 </div>
                 
@@ -389,7 +382,7 @@ export default function ContactPage() {
               
               <p className="text-gray-600 mb-6">
                 May peace be with you on your spiritual journey. We are here to serve 
-                and guide you through every sacred moment of your pilgrimage in Gaya.
+                and guide you through every sacred moment of your pilgrimage in Gaya Ji.
               </p>
               
               <div className="text-orange-600 font-semibold">

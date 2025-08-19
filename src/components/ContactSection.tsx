@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faPhone, 
@@ -43,17 +44,77 @@ const contactInfo = [
   }
 ];
 
-const businessHours = [
-  { day: 'Monday - Friday', time: '6:00 AM - 8:00 PM' },
-  { day: 'Saturday', time: '6:00 AM - 9:00 PM' },
-  { day: 'Sunday', time: '5:00 AM - 9:00 PM' },
-  { day: 'Special Occasions', time: '24/7 Available' }
-];
-
 export default function ContactSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-orange-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+      {/* Floating Tulsi leaves decoration */}
+      <div className="absolute top-20 left-12">
+        <motion.div
+          animate={{ 
+            rotate: [0, -12, 15, 0],
+            y: [0, -15, 8, 0]
+          }}
+          transition={{ 
+            duration: 13,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={45}
+            height={45}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute top-40 right-20">
+        <motion.div
+          animate={{ 
+            rotate: [0, 20, -8, 0],
+            x: [0, -12, 6, 0]
+          }}
+          transition={{ 
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={40}
+            height={40}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-32 left-1/4">
+        <motion.div
+          animate={{ 
+            rotate: [0, 8, -20, 0],
+            y: [0, 10, -5, 0],
+            x: [0, 5, -8, 0]
+          }}
+          transition={{ 
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 7
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={38}
+            height={38}
+          />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -74,7 +135,7 @@ export default function ContactSection() {
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ready to begin your spiritual journey? Contact us for personalized guidance 
-            and to book your sacred ceremonies in Gaya.
+            and to book your sacred ceremonies in Gaya Ji.
           </p>
         </motion.div>
 
@@ -132,7 +193,7 @@ export default function ContactSection() {
               </div>
               
               <div className="space-y-2">
-                {businessHours.map((hours, index) => (
+                {siteConfig.businessHours.map((hours, index) => (
                   <div key={index} className="flex justify-between items-center py-1">
                     <span className="text-orange-100">{hours.day}</span>
                     <span className="font-semibold">{hours.time}</span>
@@ -152,7 +213,7 @@ export default function ContactSection() {
           >
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <div className="p-6 bg-gradient-to-r from-orange-500 to-red-600 text-white">
-                <h3 className="text-2xl font-bold mb-2">Find Us in Gaya</h3>
+                <h3 className="text-2xl font-bold mb-2">Find Us in Gaya Ji</h3>
                 <p className="text-orange-100">
                   Located in the heart of the holy city for your convenience
                 </p>
@@ -160,7 +221,7 @@ export default function ContactSection() {
               
               <div className="aspect-video">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115358.39866136987!2d84.90845871875!3d24.75218565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32937d1c84c1b%3A0x27e76127e0128626!2sGaya%2C%20Bihar!5e0!3m2!1sen!2sin!4v1699000000000!5m2!1sen!2sin"
+                  src={siteConfig.googleMaps.embedUrl}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -168,7 +229,7 @@ export default function ContactSection() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full"
-                  title="Gaya Location Map"
+                  title="Gaya Ji Location Map"
                 />
               </div>
               
@@ -176,7 +237,7 @@ export default function ContactSection() {
                 <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Need Directions?</h4>
-                    <p className="text-gray-600">We&apos;re located in the main temple area of Gaya</p>
+                    <p className="text-gray-600">We&apos;re located in the main temple area of Gaya Ji</p>
                   </div>
                   
                   <a

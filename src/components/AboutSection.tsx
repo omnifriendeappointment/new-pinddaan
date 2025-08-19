@@ -1,19 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faOm, faHandHoldingHeart, faUsers, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const stats = [
   {
     icon: faUsers,
-    number: '5000+',
+    number: '500000+',
     label: 'Families Served',
     description: 'Happy devotees'
   },
   {
     icon: faClock,
-    number: '15+',
+    number: '150+',
     label: 'Years Experience',
     description: 'Trusted service'
   },
@@ -33,8 +34,74 @@ const stats = [
 
 export default function AboutSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-orange-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+      {/* Floating Tulsi leaves decoration */}
+      <div className="absolute top-10 left-10">
+        <motion.div
+          animate={{ 
+            rotate: [0, 10, -10, 0],
+            y: [0, -10, 0]
+          }}
+          transition={{ 
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={40}
+            height={40}
+          />
+        </motion.div>
+      </div>
+      
+      <div className="absolute top-32 right-16">
+        <motion.div
+          animate={{ 
+            rotate: [0, -15, 15, 0],
+            y: [0, 15, 0]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.png"
+            alt="Tulsi Leaf"
+            width={35}
+            height={35}
+          />
+        </motion.div>
+      </div>
+
+      <div className="absolute bottom-20 left-20">
+        <motion.div
+          animate={{ 
+            rotate: [0, 20, -5, 0],
+            x: [0, 5, -5, 0]
+          }}
+          transition={{ 
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
+          }}
+        >
+          <Image
+            src="/tulsi-leaf.webp"
+            alt="Tulsi Leaf"
+            width={30}
+            height={30}
+          />
+        </motion.div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <motion.div
@@ -55,8 +122,8 @@ export default function AboutSection() {
               
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  For over 15 years, we have been dedicated to preserving and conducting authentic 
-                  spiritual ceremonies in the holy city of Gaya. Our experienced team of learned 
+                  For over 150 years, we have been dedicated to preserving and conducting authentic 
+                  spiritual ceremonies in the holy city of Gaya Ji. Our experienced team of learned 
                   pandits ensures that every ritual is performed with complete devotion and 
                   according to ancient Vedic traditions.
                 </p>
