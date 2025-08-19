@@ -24,18 +24,6 @@ export const services = [
     ]
   },
   {
-    id: 3,
-    title: "Shraddh Ceremony",
-    description: "Annual remembrance ceremony for departed souls with complete rituals",
-    icon: "🔥",
-    includes: [
-      "Complete Shraddh ritual",
-      "Food offerings",
-      "Brahmin feeding",
-      "Sacred fire ceremony"
-    ]
-  },
-  {
     id: 4,
     title: "Narayan Bali",
     description: "Special ceremony for those who died unnaturally or suffered from diseases",
@@ -47,18 +35,19 @@ export const services = [
       "Peace prayers"
     ]
   },
-  {
-    id: 5,
-    title: "Asthi Visarjan",
-    description: "Sacred immersion of ashes in holy Falgu river with proper ceremonies",
-    icon: "🌊",
-    includes: [
-      "Asthi Visarjan ceremony",
-      "Holy river immersion",
-      "Prayer offerings",
-      "Final blessings"
-    ]
-  },
+ {
+  id: 5,
+  title: "Tripindi Shraddh",
+  description: "A Vedic ritual performed to honor and liberate ancestors of the past three generations, seeking peace for their souls.",
+  icon: "🕯️",
+  includes: [
+    "Sankalp and purification rituals",
+    "Offerings of Pind daan and Tarpan",
+    "Chanting of mantras for ancestors",
+    "Priest-guided Shraddh ceremony",
+    "Blessings for family well-being"
+  ]
+},
   {
     id: 6,
     title: "Gaya Ji Shraddh",
@@ -82,11 +71,11 @@ export const serviceCategories = [
   {
     name: "Tarpan & Water Ceremonies",
     description: "Sacred water offerings and rituals",
-    services: services.filter(s => [2, 5].includes(s.id))
+    services: services.filter(s => [2].includes(s.id))
   },
   {
     name: "Special Ceremonies",
     description: "Specialized rituals for specific needs",
-    services: services.filter(s => [4].includes(s.id))
+    services: services.filter(s => [4, 5].includes(s.id))
   }
 ];

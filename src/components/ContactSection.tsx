@@ -25,7 +25,7 @@ const contactInfo = [
     icon: faWhatsapp,
     title: 'WhatsApp',
     value: siteConfig.contact.phone,
-    link: `https://wa.me/91${siteConfig.contact.phone.replace(/\D/g, '')}?text=Hello! I need information about Pinddaan services.`,
+    link: `https://wa.me/${siteConfig.contact.whatsapp}?text=Hello! I need information about Pinddaan services.`,
     color: 'text-green-600'
   },
   {
@@ -279,7 +279,7 @@ export default function ContactSection() {
               </a>
               
               <a
-                href={`https://wa.me/91${siteConfig.contact.phone.replace(/\D/g, '')}?text=EMERGENCY: I need immediate spiritual assistance.`}
+                href={`https://wa.me/${siteConfig.contact.whatsapp}?text=EMERGENCY: I need immediate spiritual assistance.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"

@@ -12,8 +12,8 @@ import { serviceCategories } from '@/config/services';
 import { siteConfig } from '@/config/site';
 
 export default function ServicesPage() {
-  const whatsappNumber = siteConfig.contact.phone.replace(/\D/g, '');
-  const whatsappLink = `https://wa.me/91${whatsappNumber}?text=Hello! I need information about Pinddaan services.`;
+  const whatsappNumber = siteConfig.contact.whatsapp;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello! I need information about Pinddaan services.`;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
@@ -68,7 +68,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Services Grid */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="flex flex-wrap gap-8 justify-center">
                 {category.services.map((service, serviceIndex) => (
                   <motion.div
                     key={service.id}
@@ -76,7 +76,7 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: serviceIndex * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col max-w-md"
                   >
                     {/* Service Header */}
                     <div className="bg-gradient-to-r from-orange-500 to-red-600 p-6 text-white">
@@ -92,13 +92,13 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Service Content */}
-                    <div className="p-6">
+                    <div className="p-6 flex-1 flex flex-col">
                       <p className="text-gray-600 mb-6 leading-relaxed">
                         {service.description}
                       </p>
 
                       {/* What's Included */}
-                      <div className="mb-6">
+                      <div className="mb-6 flex-1">
                         <h4 className="font-semibold text-gray-900 mb-3">What&apos;s Included:</h4>
                         <ul className="space-y-2">
                           {service.includes.map((item, index) => (

@@ -31,7 +31,7 @@ export default function Footer() {
     ...((siteConfig.links as any).twitter ? [{ icon: faTwitter, href: (siteConfig.links as any).twitter, hoverColor: 'hover:text-orange-400' }] : []),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...((siteConfig.links as any).instagram ? [{ icon: faInstagram, href: (siteConfig.links as any).instagram, hoverColor: 'hover:text-orange-400' }] : []),
-    { icon: faWhatsapp, href: `https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`, hoverColor: 'hover:text-green-400' }
+    { icon: faWhatsapp, href: `https://wa.me/${siteConfig.contact.whatsapp}`, hoverColor: 'hover:text-green-400' }
   ];
 
   return (
@@ -157,8 +157,12 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faOm} className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-orange-400">{siteConfig.name}</h3>
-                <p className="text-sm text-orange-500 font-semibold italic">{siteConfig.tagline}</p>
+                <h3 className="text-lg font-bold text-orange-400">
+                  {siteConfig.name} 
+                  <br />
+                  <span className='text-base'>{siteConfig.tagline}</span>
+                </h3>
+                <p className="text-sm text-orange-500 font-semibold italic">{siteConfig.subTagline}</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">

@@ -53,7 +53,7 @@ export default function Header() {
       {/* Top ribbon bar - Modernized */}
       <div className="bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 text-white py-3 px-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-wrap gap-2 items-center space-x-6">
             <a 
               href={`tel:${siteConfig.contact.phone}`} 
               className="flex items-center space-x-2 hover:text-yellow-200 transition-all duration-300 hover:scale-105"
@@ -132,11 +132,12 @@ export default function Header() {
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="group-hover:translate-x-1 transition-transform duration-300">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent">
+              <div className="group-hover:translate-x-1 transition-transform duration-300 py-2">
+                <h1 className="text-lg leading-none font-bold bg-gradient-to-r from-orange-600 via-red-600 to-orange-700 bg-clip-text text-transparent">
                   {siteConfig.name}
+                  <span className='text-base block'>{siteConfig.tagline}</span>
                 </h1>
-                <p className="text-base text-orange-800 font-semibold italic">{siteConfig.tagline}</p>
+                <p className="text-xs  text-orange-800 font-semibold italic">{siteConfig.subTagline}</p>
               </div>
             </Link>
 

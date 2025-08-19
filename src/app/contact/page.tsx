@@ -32,7 +32,7 @@ const contactMethods = [
     icon: faWhatsapp,
     title: 'WhatsApp',
     value: siteConfig.contact.phone,
-    link: `https://wa.me/91${siteConfig.contact.phone.replace(/\D/g, '')}?text=Hello! I need information about Pinddaan services.`,
+    link: `https://wa.me/${siteConfig.contact.whatsapp}?text=Hello! I need information about Pinddaan services.`,
     description: 'Message us on WhatsApp for quick responses',
     color: 'text-green-600',
     bgColor: 'from-green-100 to-green-200'
@@ -64,11 +64,11 @@ const socialLinks = [
   ...((siteConfig.links as any).twitter ? [{ icon: faTwitter, name: 'Twitter', link: (siteConfig.links as any).twitter, color: 'text-sky-600' }] : []),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ...((siteConfig.links as any).instagram ? [{ icon: faInstagram, name: 'Instagram', link: (siteConfig.links as any).instagram, color: 'text-pink-600' }] : []),
-  { icon: faWhatsapp, name: 'WhatsApp', link: `https://wa.me/91${siteConfig.contact.phone.replace(/\D/g, '')}`, color: 'text-green-600' }
+  { icon: faWhatsapp, name: 'WhatsApp', link: `https://wa.me/${siteConfig.contact.whatsapp}`, color: 'text-green-600' }
 ];
 
 export default function ContactPage() {
-  const whatsappNumber = siteConfig.contact.phone.replace(/\D/g, '');
+  const whatsappNumber = siteConfig.contact.whatsapp;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
@@ -131,7 +131,7 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group hover:-translate-y-2"
               >
-                <div className={`w-16 h-16 bg-gradient-to-br ${method.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${method.bgColor} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <FontAwesomeIcon icon={method.icon} className={`w-8 h-8 ${method.color}`} />
                 </div>
                 
@@ -213,7 +213,7 @@ export default function ContactPage() {
                 </a>
                 
                 <a
-                  href={`https://wa.me/91${whatsappNumber}?text=Hello! I need information about Pinddaan services.`}
+                  href={`https://wa.me/${whatsappNumber}?text=Hello! I need information about Pinddaan services.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full px-6 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-lg hover:from-green-600 hover:to-green-700 transform hover:scale-105 transition-all duration-300 text-center"
@@ -353,7 +353,7 @@ export default function ContactPage() {
               </a>
               
               <a
-                href={`https://wa.me/91${whatsappNumber}?text=EMERGENCY: I need immediate spiritual assistance.`}
+                href={`https://wa.me/${whatsappNumber}?text=EMERGENCY: I need immediate spiritual assistance.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-red-600 transition-all duration-300"

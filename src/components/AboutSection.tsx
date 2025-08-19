@@ -8,13 +8,13 @@ import { faOm, faHandHoldingHeart, faUsers, faClock } from '@fortawesome/free-so
 const stats = [
   {
     icon: faUsers,
-    number: '500000+',
+    number: '25,00,000+',
     label: 'Families Served',
     description: 'Happy devotees'
   },
   {
     icon: faClock,
-    number: '150+',
+    number: '200+',
     label: 'Years Experience',
     description: 'Trusted service'
   },
@@ -177,7 +177,7 @@ export default function AboutSection() {
                   />
                 </div>
                 
-                <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                <h3 className="text-lg sm:text-3xl font-bold text-gray-900 mb-2">
                   {stat.number}
                 </h3>
                 

@@ -26,51 +26,51 @@ export const pindvedisData = {
     },
     {
       id: 4,
-      name: "Brahma Kund (ब्रह्मा कुंड)",
-      importance: "Created by Lord Brahma himself",
-      description: "Peaceful setting for Shraddh rituals. Contains creation energy of Brahma.",
-      services: "Tarpan, Purification, Darshan",
-      icon: "fas fa-water"
+      name: "Sita Kund (सीता कुंड)",
+      importance: "Sacred water body linked with Goddess Sita",
+      description: "Ideal for Tarpan Vidhi and Brahmin Bhoj",
+      services: "Tarpan Vidhi, Brahmin Bhoj",
+      icon: "fas fa-tint"
     },
     {
       id: 5,
-      name: "Gayasur (गयासुर)",
-      importance: "Demon turned divine, forms Gaya land",
-      description: "Performing Shraddh gives immense punya. Foundation of Gaya's sanctity.",
-      services: "Pind Daan, Darshan",
-      icon: "fas fa-mountain"
+      name: "Ram Gaya (राम गया)",
+      importance: "Linked to Lord Ram's visit for Pinddaan",
+      description: "Highly revered during Pitru Paksha",
+      services: "Pinddaan, Tarpan, Ritual Offerings",
+      icon: "fas fa-praying-hands"
     },
     {
       id: 6,
-      name: "Ram Shilla (राम शिला)",
-      importance: "Lord Ram's Shraddh place for ancestors",
-      description: "Ideal for Pitradosh puja. Blessed with Ram's divine grace.",
-      services: "Pind Daan, Tripindi Shraddh",
+      name: "16 Vedi (१६ वेदी)",
+      importance: "16 sacred spots for Pinddaan rituals",
+      description: "16 sacred spots for Pinddaan rituals infront of Vishnu charan",
+      services: "",
       icon: "fas fa-temple"
     },
     {
       id: 7,
-      name: "Brahmapada (ब्रह्मपद)",
-      importance: "Footprint of Lord Brahma",
-      description: "Moksha-giving vedi. Contains Brahma's creative energy.",
-      services: "Pind Daan, Darshan",
-      icon: "fas fa-temple"
+      name: "Gaya Kup (गया कूप)",
+      importance: "A sacred well within Vishnupad complex",
+      description: "Part of major Shraddh circuit in Gaya",
+      services: "Shraddh rituals, Tarpan, Holy water offerings",
+      icon: "fas fa-well"
     },
     {
       id: 8,
-      name: "Bodh Gaya (बोध गया)",
-      importance: "Buddha's enlightenment site",
-      description: "Combines pilgrimage with Shraddh. Contains enlightenment vibrations.",
-      services: "Darshan, Meditation",
-      icon: "fas fa-leaf"
+      name: "Baitarni (बैतरणी)",
+      importance: "Sacred symbolic river believed to help souls cross to moksha",
+      description: "Tarpan done here with prayers for liberation. Considered a bridge between earthly and spiritual realms.",
+      services: "Tarpan, Prayer offerings, Liberation rituals",
+      icon: "fas fa-river"
     },
     {
       id: 9,
-      name: "Dharmaranya (धर्मारण्य)",
-      importance: "Sacred forest of Dharma",
-      description: "Major site for Pitru Paksha rituals. Pure dharmic environment.",
-      services: "Pind Daan, Darshan",
-      icon: "fas fa-tree"
+      name: "Kagbali (कागबली)",
+      importance: "Associated with offering food to crows",
+      description: "Considered a necessary step after Pinddaan rituals, symbolizing offerings reaching ancestors.",
+      services: "Food offerings, Post-Pinddaan ritual, Ancestor blessings",
+      icon: "fas fa-crow"
     }
   ],
   pindVedis: [

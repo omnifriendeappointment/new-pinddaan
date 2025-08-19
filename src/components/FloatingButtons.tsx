@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 import { siteConfig } from '@/config/site';
 
 export default function FloatingButtons() {
-  const whatsappNumber = siteConfig.contact.phone.replace(/\D/g, ''); // Remove non-digits
-  const whatsappLink = `https://wa.me/91${whatsappNumber}?text=Hello! I need information about Pinddaan services.`;
+  const whatsappNumber = siteConfig.contact.whatsapp; // Remove non-digits
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hello! I need information about Pinddaan services.`;
   const phoneLink = `tel:${siteConfig.contact.phone}`;
 
   return (
