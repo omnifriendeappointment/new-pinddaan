@@ -38,9 +38,7 @@ jobs:
       - name: Prepare artifact (copy everything for deployment)
         run: |
           mkdir -p deploy
-          shopt -s extglob
-          cp -r !(deploy) deploy/
-          cp -r ./.??* deploy/ || true
+          rsync -av --exclude='deploy' ./ deploy/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
