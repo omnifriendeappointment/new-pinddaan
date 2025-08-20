@@ -35,14 +35,10 @@ jobs:
       - name: Verify build
         run: ls -la .next
 
-      - name: Prepare artifact (copy everything for deployment)
+      - name: Prepare artifact (copy entire project)
         run: |
           mkdir -p deploy
-          # Copy everything except deploy itself
           rsync -av --exclude='deploy' ./ deploy/
-          # Ensure entire .next folder is fully copied including hidden/special files
-          mkdir -p deploy/.next
-          cp -a .next/. deploy/.next/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -68,7 +64,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
-          source: "app/*"
+          source: "app/"
           target: "~/apps/${{ github.event.repository.name }}/"
 
       - name: Check and deploy on EC2
