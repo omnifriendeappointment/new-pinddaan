@@ -35,8 +35,8 @@ jobs:
       - name: Verify build
         run: ls -la .next
 
-      - name: Zip artifact for deployment (including .next)
-        run: zip -r deploy.zip ./* .next -x "node_modules/*" ".git/*" "deploy/*"
+      - name: Zip artifact for deployment (including .next and node_modules)
+        run: zip -r deploy.zip ./* .next node_modules -x ".git/*" "deploy/*"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -96,9 +96,18 @@ jobs:
             echo "🔹 Checking .next directory"
             if [ -d ".next" ]; then
               echo "✅ .next directory found"
-              ls -la .next/
+              ls -la .next/ | head -5
             else
               echo "❌ .next directory missing - deployment will fail"
+              exit 1
+            fi
+            
+            echo "🔹 Checking node_modules directory"
+            if [ -d "node_modules" ]; then
+              echo "✅ node_modules directory found"
+              ls -la node_modules/.bin/ | head -5
+            else
+              echo "❌ node_modules directory missing - deployment will fail"
               exit 1
             fi
             
@@ -136,9 +145,8 @@ jobs:
               pm2 update
             fi
 
-            echo "🔹 Installing dependencies (Next.js needed for production)"
-            npm install
-
+            echo "🔹 Dependencies already available from build (skipping npm install)"
+            
             echo "🔹 Starting/restarting current app with PM2"
             if pm2 list | grep -q "$APP_NAME"; then
               echo "♻️ Restarting existing app $APP_NAME"
