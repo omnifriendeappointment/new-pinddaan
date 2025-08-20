@@ -35,17 +35,14 @@ jobs:
       - name: Verify build
         run: ls -la .next
 
-      - name: Prepare artifact (copy entire project)
-        run: |
-          mkdir -p deploy
-          rsync -av --exclude='deploy' ./ deploy/
+      - name: Zip artifact for deployment (including .next)
+        run: zip -r deploy.zip ./* .next -x "node_modules/*" ".git/*" "deploy/*"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-artifact
-          path: deploy
-          include-hidden-files: true
+          path: deploy.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -56,7 +53,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: app-artifact
-          path: app
+
+      - name: Unzip artifact
+        run: |
+          mkdir -p app
+          unzip deploy.zip -d app/
 
       - name: Deploy to EC2 via SCP
         uses: appleboy/scp-action@v0.1.7
@@ -92,6 +93,15 @@ jobs:
             echo "📁 Directory contents:"
             ls -la
             
+            echo "🔹 Checking .next directory"
+            if [ -d ".next" ]; then
+              echo "✅ .next directory found"
+              ls -la .next/
+            else
+              echo "❌ .next directory missing - deployment will fail"
+              exit 1
+            fi
+            
             echo "🔹 Checking Node.js installation"
             NODE_UPDATED=false
             if ! command -v node >/dev/null 2>&1; then
@@ -126,19 +136,16 @@ jobs:
               pm2 update
             fi
 
-            echo "🔹 Installing dependencies (including dev for Next.js)"
-            npm install
+            echo "🔹 Installing dependencies"
+            npm install --omit=dev
 
-            echo "🔹 Fixing executable permissions"
-            chmod +x node_modules/.bin/* 2>/dev/null || true
-            
             echo "🔹 Starting/restarting current app with PM2"
             if pm2 list | grep -q "$APP_NAME"; then
               echo "♻️ Restarting existing app $APP_NAME"
               pm2 restart "$APP_NAME"
             else
               echo "🚀 Starting new app $APP_NAME"
-              pm2 start "npm run start" --name "$APP_NAME"
+              pm2 start "npm start" --name "$APP_NAME"
             fi
 
             pm2 save
