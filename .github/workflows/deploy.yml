@@ -136,8 +136,8 @@ jobs:
               pm2 update
             fi
 
-            echo "🔹 Installing dependencies"
-            npm install --omit=dev
+            echo "🔹 Installing dependencies (Next.js needed for production)"
+            npm install
 
             echo "🔹 Starting/restarting current app with PM2"
             if pm2 list | grep -q "$APP_NAME"; then
