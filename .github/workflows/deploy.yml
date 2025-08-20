@@ -36,7 +36,7 @@ jobs:
         run: ls -la .next
 
       - name: Zip artifact for deployment (including .next and node_modules)
-        run: zip -r deploy.zip ./* .next node_modules -x ".git/*" "deploy/*"
+        run: zip -r deploy.zip . -x ".git/*" "deploy/*" "*.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
