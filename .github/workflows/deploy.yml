@@ -126,9 +126,12 @@ jobs:
               pm2 update
             fi
 
-            echo "🔹 Installing production dependencies"
-            npm install --omit=dev
+            echo "🔹 Installing dependencies (including dev for Next.js)"
+            npm install
 
+            echo "🔹 Fixing executable permissions"
+            chmod +x node_modules/.bin/* 2>/dev/null || true
+            
             echo "🔹 Starting/restarting current app with PM2"
             if pm2 list | grep -q "$APP_NAME"; then
               echo "♻️ Restarting existing app $APP_NAME"
