@@ -1,4 +1,4 @@
-name: Deploy to EC2
+name: Deploy Next.js to EC2
 
 on:
   push:
@@ -29,10 +29,13 @@ jobs:
             echo "No ENV_FILE secret found, skipping .env creation"
           fi
 
-      - name: Build project
+      - name: Build Next.js project
         run: npm run build
 
-      - name: Prepare artifact (copy all files except deploy folder)
+      - name: Verify build
+        run: ls -la .next
+
+      - name: Prepare artifact (copy everything for deployment)
         run: |
           mkdir -p deploy
           shopt -s extglob
