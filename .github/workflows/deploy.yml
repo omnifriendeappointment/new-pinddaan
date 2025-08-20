@@ -38,7 +38,11 @@ jobs:
       - name: Prepare artifact (copy everything for deployment)
         run: |
           mkdir -p deploy
+          # Copy all files except deploy folder itself
           rsync -av --exclude='deploy' ./ deploy/
+          # Ensure entire .next folder is fully copied including hidden/special files
+          mkdir -p deploy/.next
+          cp -a .next/. deploy/.next/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
