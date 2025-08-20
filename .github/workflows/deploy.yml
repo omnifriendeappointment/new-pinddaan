@@ -38,7 +38,7 @@ jobs:
       - name: Prepare artifact (copy everything for deployment)
         run: |
           mkdir -p deploy
-          # Copy all files except deploy folder itself
+          # Copy everything except deploy itself
           rsync -av --exclude='deploy' ./ deploy/
           # Ensure entire .next folder is fully copied including hidden/special files
           mkdir -p deploy/.next
@@ -49,6 +49,7 @@ jobs:
         with:
           name: app-artifact
           path: deploy
+          include-hidden-files: true
 
   deploy:
     runs-on: ubuntu-latest
