@@ -64,8 +64,9 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
-          source: "app/"
+          source: "app/*"
           target: "~/apps/${{ github.event.repository.name }}/"
+          strip_components: 1
 
       - name: Check and deploy on EC2
         uses: appleboy/ssh-action@v0.1.7
@@ -76,8 +77,21 @@ jobs:
           script: |
             APP_NAME="${{ github.event.repository.name }}"
             APP_DIR=~/apps/$APP_NAME
-            cd $APP_DIR
-
+            
+            # Clean up any existing nested structure
+            if [ -d "$APP_DIR/app" ]; then
+              echo "🧹 Cleaning up nested app directory"
+              mv $APP_DIR/app/* $APP_DIR/ 2>/dev/null || true
+              mv $APP_DIR/app/.* $APP_DIR/ 2>/dev/null || true
+              rmdir $APP_DIR/app 2>/dev/null || true
+            fi
+            
+            cd $APP_DIR || { echo "❌ Failed to enter directory $APP_DIR"; exit 1; }
+            
+            echo "📂 Current directory: $(pwd)"
+            echo "📁 Directory contents:"
+            ls -la
+            
             echo "🔹 Checking Node.js installation"
             NODE_UPDATED=false
             if ! command -v node >/dev/null 2>&1; then
