@@ -1,0 +1,93 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            REPO_NAME=$(basename ${{ github.repository }})
+            APP_NAME=$REPO_NAME
+            APP_DIR=~/apps/$APP_NAME
+
+            echo "🚀 Deploying $APP_NAME"
+
+            # Ensure Node.js latest LTS
+            NODE_UPDATED=false
+            if ! command -v node >/dev/null; then
+              echo "⚡ Installing Node.js LTS..."
+              curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+              sudo apt-get install -y nodejs
+              NODE_UPDATED=true
+            else
+              echo "⚡ Checking Node.js version..."
+              curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+              sudo apt-get install -y nodejs
+              NODE_UPDATED=true
+            fi
+
+            # Ensure pm2
+            if ! command -v pm2 >/dev/null; then
+              sudo npm install -g pm2
+            fi
+
+            if [ "$NODE_UPDATED" = true ]; then
+              echo "♻️ Restarting all PM2 apps after Node.js upgrade"
+              pm2 restart all || true
+              pm2 save || true
+            fi
+
+            # Clone repo if dir doesn't exist
+            if [ ! -d "$APP_DIR" ]; then
+              git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }} $APP_DIR
+            fi
+
+            cd $APP_DIR
+
+            # Reset to latest main
+            git fetch origin main
+            git reset --hard origin/main
+
+            # Handle env file if provided
+            if [ -n "${{ secrets.ENV_FILE }}" ]; then
+              echo "📦 Writing .env file"
+              echo "${{ secrets.ENV_FILE }}" > .env
+              export $(grep -v '^#' .env | xargs || true)
+            else
+              echo "⚠️ No .env file provided"
+            fi
+
+            # Install deps & build
+            npm install
+            npm run build || echo "⚠️ No build script, skipping"
+
+            # Ensure package.json has start script
+            if ! npm run | grep -q "start"; then
+              echo "❌ No start script found in package.json. Aborting."
+              exit 1
+            fi
+
+            # Restart or start app with pm2
+            if pm2 list | grep -q "$APP_NAME"; then
+              echo "♻️ Restarting existing app $APP_NAME"
+              pm2 restart "$APP_NAME"
+            else
+              echo "🚀 Starting new app $APP_NAME"
+              pm2 start "npm run start" --name "$APP_NAME"
+            fi
+
+            pm2 save
+            echo "✅ Deployment complete for $APP_NAME"
