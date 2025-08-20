@@ -32,10 +32,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Prepare artifact (copy everything)
+      - name: Prepare artifact (copy everything including hidden files)
         run: |
           mkdir -p deploy
-          cp -r . deploy/
+          cp -r ./* deploy/
+          cp -r ./.??* deploy/ || true
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
